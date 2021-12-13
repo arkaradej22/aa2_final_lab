@@ -26,3 +26,6 @@
       loop: "{{ instances }}"
       loop_control:
         loop_var: instance
+    - name: Pause for 1 minutes to wait server provision
+      pause:
+        minutes: 1
