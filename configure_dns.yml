@@ -1,7 +1,7 @@
 - import_playbook: in-memory-inventory.yml
 
 - name: Config DNS
-  hosts: all
+  hosts: database_servers,app_servers,load_balancers
   become: yes
   tasks:
     - name: Gather network facts
