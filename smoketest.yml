@@ -37,7 +37,8 @@
  
     - name: Check webserver for correct response (IP)
       uri:
-        url: "http://192.168.51.18/ping"
+        #url: "http://192.168.51.18/ping"
+        url: "http://{{ hostvars['localhost']['frontend1'] }}/ping"
         return_content: yes
       until: '"alive" in result.content'
       retries: 5

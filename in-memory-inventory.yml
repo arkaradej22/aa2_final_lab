@@ -4,7 +4,7 @@
   gather_facts: false
   vars:
     #guid: "{{ lookup('ENV','GUID') }}"
-    guid:"5602"
+    guid: 5602
     home: "{{ lookup('ENV','HOME') }}"
     internal_domain: "example.com"
   tasks:
