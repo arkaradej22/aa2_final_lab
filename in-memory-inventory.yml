@@ -23,6 +23,13 @@
       loop: "{{ instances.openstack_servers }}"
       loop_control:
         loop_var: instance
+    - name: Set Fact For Frontend1 IP Address
+      set_fact:
+        frontend1: "{{ myvar.private_v4 }}"
+      when: myvar.metadata.AnsibleGroup == "load_balancers"
+      loop: "{{ instances.openstack_servers }}"
+      loop_control:
+        loop_var: myvar
 
 - name: Print current hosts
   hosts: localhost
