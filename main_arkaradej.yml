@@ -1,0 +1,27 @@
+- import_playbook: in-memory-inventory.yml
+- name: Play to setup Postgres 10
+  hosts: database_servers
+  become: true
+  gather_facts: false
+  tags:
+    - database_servers
+  roles:
+    - role: database
+- name: Play to setup apache flask repo and virtualenv
+  hosts: app_servers
+  hosts: app_servers
+  become: true
+  gather_facts: false
+  tags:
+    - application_servers
+    - flask
+  roles:
+    - role: app
+
+- name: Play to setup haproxy load balancer
+  hosts: load_balancers
+  gather_facts: false
+  become: true
+  roles:
+    - role: frontend
+

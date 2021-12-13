@@ -1,0 +1,8 @@
+---
+- import_playbook: in-memory-inventory.yml
+
+- name: Ping Test
+  hosts: all
+  tasks:
+    - name: Task - Ping
+      ping:

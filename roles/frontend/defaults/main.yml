@@ -1,0 +1,4 @@
+---
+# defaults file for roles/frontend
+load_balancer_packages:
+  - haproxy
