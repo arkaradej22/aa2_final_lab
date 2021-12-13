@@ -1,0 +1,9 @@
+- import_playbook: in-memory-inventory.yml
+- name: Play to setup Postgres 10
+  hosts: database_servers
+  become: true
+  gather_facts: false
+  tags:
+    - database_servers
+  roles:
+    - role: database

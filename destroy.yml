@@ -1,0 +1,19 @@
+#- import_playbook: in-memory-inventory.yml
+
+- name: Create OpenStack Instances
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    guid: "{{ lookup('ENV','GUID') }}"
+  tasks:
+    - name: Include Instance variables
+      include_vars: instances_vars.yml
+
+    - name: Remove Instance
+      openstack.cloud.server:
+        name: "{{ instance.name }}"
+        state: absent
+      loop: "{{ instances }}"
+      loop_control:
+        loop_var: instance

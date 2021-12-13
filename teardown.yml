@@ -1,4 +1,6 @@
 ---
+- import_playbook: in-memory-inventory.yml
+
 - name: Teardown Postgres 10
   hosts: database_servers
   become: true
