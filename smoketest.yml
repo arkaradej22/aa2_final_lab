@@ -35,7 +35,7 @@
     - smoketest  
   tasks:
  
-    - name: Check webserver for correct response
+    - name: Check webserver for correct response (IP)
       uri:
         url: "http://192.168.51.18/ping"
         return_content: yes
